@@ -1,0 +1,37 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Mar  5 01:58:55 2019
+
+@author: Levee
+"""
+#Tugas Fisika Komputasi
+#No 2
+
+import numpy as np
+import matplotlib.pyplot as mpl
+
+V=(8*11*3)-(0.075*35)
+Ta=(293)
+P=101.325
+Pm=2800
+c=0.718
+R=8.314
+mo=28.97
+
+n=(P*V)/(R*Ta)
+mg=(n*mo)
+time=np.arange(0,31,1)
+n=len(time)
+T=np.zeros(n)
+
+print ('t\t\t T(t)')
+for t in range(n):
+    T[t]=(Pm*t)/(c*mg) + Ta
+    print('{:2.4f} {:2.4f}'.format(time[t],T[t]))
+
+mpl.plot(time,T)
+mpl.xlabel('waktu')
+mpl.ylabel('Suhu ruangan')
+mpl.title('Grafik suhu pada ruangan tiap menit')
+mpl.grid(True)
+mpl.show()
