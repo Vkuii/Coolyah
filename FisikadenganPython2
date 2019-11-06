@@ -1,0 +1,51 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sun May 26 21:41:24 2019
+
+@author: Levee
+
+"""
+
+import numpy as np
+from TrapznFungsi import trapznFungsi
+from Differensial1 import *
+
+#Fungsi yang akan dicari
+def f(t) :
+    return (m*g/c)*(1-2.71828**(-(c/m)*t))
+
+# a merupakan batas bawah integrasi
+# b merupakan batas atas integrasi
+# n merupakan banyaknya segmen yang akan digunakan
+m = 70
+g = 9.81
+c = 12
+n = 20    
+a = 0
+b = 10
+z = trapznFungsi(f,n,a,b)
+
+print ("Hasil Integrasi = {:5.5f}\n".format(z))
+
+x = 10
+h = 0.25
+A = 1.7667076
+
+D = trn1Mundur(f,x,h)
+print (" Turunan-1 Mundur= ",D)
+print (" Kesalahan relatif =", err (D,A),"%\n")
+
+D = trn1Maju(f,x,h)
+print (" Turunan-1 Maju:",D)
+print (" Kesalahan relatif =", err (D,A),"%\n")
+
+D = trn1Tengah(f,x,h)
+print (" Turunan-1 Tengah:",D)
+print (" Kesalahan relatif = ", err (D,A),"%\n")
+
+dh1 = trn1Tengah(f,x,h)
+dh2 = trn1Tengah(f,x,h/2)
+
+D = trn1Richardson(dh1, dh2, 2)
+print ("Turunan-1 Richardson= ",D)
+print ("Kesalahan relatif = ", err (D,A),"%\n")
