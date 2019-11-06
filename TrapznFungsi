@@ -2,7 +2,7 @@
 """
 Created on Thu Apr 11 10:51:39 2019
 
-@author: Ardi
+@author: Levee
 """
 
 def trapznFungsi(f,n,a,b):
