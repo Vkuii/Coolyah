@@ -1,0 +1,26 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Feb  27 01:57:38 2019
+
+@author: Levee
+"""
+
+#Tugas Fisika Komputasi
+
+'''
+(1a)
+'''
+import matplotlib.pyplot as mplt
+import numpy as np
+
+mm = 0.35
+g = 9.8
+cd = 0.65
+time = np.arange(0,15,0.5)
+n = len(time)
+v = np.zeros(n)
+
+def GJB(t, g=9.8 cd=0.65):
+    V = (g*(1-np.exp(-cd*t)))/cd
+    return V
+print("V[t] = ",GJB(15))
