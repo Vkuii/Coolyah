@@ -1,0 +1,23 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Apr 11 10:29:19 2019
+
+@author: Levee
+"""
+
+def err (DiffNum, HasilAnalitik ) :
+    err = abs((DiffNum - HasilAnalitik) / HasilAnalitik ) * 100
+    return err
+def trn1Mundur(f, x, h):
+    D = (3*f(x)-4*f(x-h)+f(x-2*h))/(2*h)
+    return D
+def trn1Maju(f, x, h):
+    D = (-3*f(x)+4*f(x+h)-f(x+2*h))/(2*h)
+    return D
+def trn1Tengah(f, x, h):
+    D = (f(x+h)-f(x-h))/(2*h)
+    return D
+def trn1Richardson(dh1,dh2,p):
+    penyebut = 2**p - 1
+    pembilang = 2**p * dh2 - dh1
+    return pembilang / penyebut
